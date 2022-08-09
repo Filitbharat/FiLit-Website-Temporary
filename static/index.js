@@ -2,7 +2,7 @@ let overlay = document.getElementById('overlay');
 let overlayButton = document.getElementById('navbar-overlay-button');
 
 overlayButton.addEventListener('click', function() {
-    if (overlay.style.height == "100%"){
+    if (overlay.style.transform == "translateX(0px)"){
         closeOverlay();
     }
     else{
@@ -11,9 +11,9 @@ overlayButton.addEventListener('click', function() {
 })
 
 function openOverlay() {
-    overlay.style.height = "100%";
+    overlay.style.transform = "translateX(0)";
 }
 
 function closeOverlay() {
-    overlay.style.height = "0";
+    overlay.style.transform = "translateX(100%)";
 }
