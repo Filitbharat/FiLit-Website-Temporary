@@ -30,22 +30,22 @@ a {
 /* Navbar */
 
 #main-navbar {
-  padding: 2% 10%;
+  padding: 4vh 5vw;
   display: grid;
   position: fixed;
-  width: 80%;
-  height: 9%;
+  width: 90vw;
+  height: 7vh;
   top: 0;
   z-index: 2;
   grid-template-columns: repeat(6, 1fr);
-  background-color: white;
+  /* background-color: white; */
   /* border-bottom: 1px solid gray; */
 }
 
 #navbar-filler {
-  height: 5%;
-  padding: 2% 10%;
-  width: 80%;
+  height: 7vh;
+  padding: 1vh 5vw;
+  width: 90vw;
 }
 
 #navbar-overlay-button-container {
@@ -64,10 +64,10 @@ a {
 
 .navbar-logo-container {
   display: flex;
-  align-items: left;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 60px;
-  margin: auto;
 }
 
 .navbar-logo {
@@ -83,17 +83,18 @@ a {
   align-items: center;
   /* background-color: #004aad; */
   border-radius: 12px;
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 }
 
 .navbar-link {
   color: #004aad;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: 1px;
   width: 80%;
   margin: 0 3%;
+  padding: 1% 2%;
   height: 60%;
   border-radius: 12px;
   display: flex;
@@ -109,7 +110,6 @@ a {
 
 .navbar-download-button-container {
   display: flex;
-  /* width: auto; */
   justify-content: right;
   align-items: center;
 }
@@ -120,7 +120,7 @@ a {
   height: 70%;
   width: 60%;
   font-weight: 800;
-  font-size: 25px;
+  font-size: 20px;
   border-radius: 12px;
   margin-right: 20px;
   transition: 0.5s all ease-in-out;
@@ -184,7 +184,7 @@ a {
     display: flex;
   }
   .navbar-logo-container {
-    margin: 10% 5%;
+    margin: 2% 5%;
   }
   .navbar-logo {
     height: 50px;
@@ -241,15 +241,15 @@ a {
 }
 
 .front-content-main-heading {
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 800;
   color: #004aad;
-  width: 80%;
+  width: 100%;
   padding-bottom: 2%;
 }
 
 .front-content-sub-heading {
-  font-size: 30px;
+  font-size: 25px;
   width: 70%;
   color: gray;
   padding-bottom: 10%;
@@ -271,11 +271,12 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 70%;
+  height: 100%;
+  font-size: 100%;
 }
 
 .playstore-text {
-  font-size: 20px;
+  font-size: 120%;
   font-weight: 600;
 }
 
