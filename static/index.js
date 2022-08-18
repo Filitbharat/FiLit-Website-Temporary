@@ -90,6 +90,11 @@ window.addEventListener('mousemove', function (e) {
   cursor.style.top = document.documentElement.scrollTop +  e.clientY - 4 + "px";
 });
 
+window.addEventListener('scroll', function (e) {
+  cursor.style.top = document.documentElement.scrollTop +  pageY - 4 + "px";
+});
+
+
 function lerp(x, y, f) {
   return (1 - f) * x + f * y;
 }
