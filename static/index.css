@@ -8,8 +8,9 @@
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
+  cursor: none;
 }
 
 button {
@@ -18,9 +19,9 @@ button {
   border: none;
   padding: 0;
   font: inherit;
-  cursor: pointer;
   outline: inherit;
   font-family: "Open Sans", sans-serif;
+  cursor: none;
 }
 
 a {
@@ -35,16 +36,16 @@ a {
   display: grid;
   position: fixed;
   width: 100%;
-  min-height: 7vh;
+  min-height: 10vh;
   top: 0;
-  z-index: 10;
+  z-index: 3;
   grid-template-columns: repeat(6, 1fr);
   background-color: white;
   /* border-bottom: 1px solid gray; */
 }
 
 #navbar-filler {
-  height: 7vh;
+  height: 10vh;
   /* padding: 1vh 5vw; */
   /* width: 90vw; */
   background-color: white;
@@ -217,7 +218,7 @@ a {
 }
 
 .phone-models {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,7 +246,7 @@ a {
 
 .front-content-main-heading {
   font-size: 60px;
-  font-weight: 800;
+  font-weight: 600;
   color: #004aad;
   width: 100%;
   padding-bottom: 2%;
@@ -253,7 +254,7 @@ a {
 
 .front-content-sub-heading {
   font-size: 25px;
-  width: 70%;
+  width: 80%;
   color: gray;
   padding-bottom: 10%;
 }
@@ -296,6 +297,9 @@ a {
     font-size: 150%;
     width: 100%;
   }
+  .phone-models {
+    height: 50vh;
+  }
   .front-content-phone-model-straight {
     height: 70%;
   }
@@ -328,7 +332,7 @@ a {
   padding: 5vh 0;
 }
 
-.how-it-works-section-container:nth-last-of-type(2) {
+.how-it-works-section-container:nth-last-of-type(3) {
   background-color: lightgray;
 }
 
@@ -434,10 +438,10 @@ a {
 }
 
 .c-faq__title {
-  cursor: pointer;
   width: 100%;
   font-weight: 500;
   background: white;
+  /* cursor: pointer; */
   z-index: 2;
   position: relative;
   font-size: 1.1em;
@@ -533,4 +537,32 @@ a {
   .section__headline {
     font-size: 60px;
   }
+}
+
+/* Cursor */
+
+#cursor {
+  width: 8px;
+  height: 8px;
+  background: gray;
+  border-radius: 50%;
+  z-index: 999;
+  mix-blend-mode: difference;
+  position: absolute;
+  pointer-events: none;
+}
+
+#cursor-outer {
+  width: 32px;
+  height: 32px;
+  border: 1px solid lightgray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 30%;
+  z-index: 999;
+  mix-blend-mode: difference;
+  opacity: .5;
+  pointer-events: none;
+  /* transform: translate(-50%, -50%); */
 }

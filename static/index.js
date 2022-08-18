@@ -63,7 +63,45 @@ $("body").delegate(".c-faq", "click", function () {
     r = 1;
   }
   $(".c-faq").removeClass("c-faq--active");
-  if ((r != 1) || (w > 768)) {
+  if (r != 1 || w > 768) {
     $(this).addClass("c-faq--active");
   }
 });
+
+//  cursor animation
+
+let cursor = document.getElementById("cursor");
+let cursorOuter = document.getElementById("cursor-outer");
+
+if ("ontouchstart" in window) {
+  cursor.style.display = "none";
+  cursorOuter.style.display = "none";
+}
+
+let cursorX = 0;
+let cursorY = 0;
+let pageX = 0;
+let pageY = 0;
+
+window.addEventListener('mousemove', function (e) {
+  pageX = e.clientX;
+  pageY = e.clientY;
+  cursor.style.left = e.clientX - 4 + "px";
+  cursor.style.top = document.documentElement.scrollTop +  e.clientY - 4 + "px";
+});
+
+function lerp(x, y, f) {
+  return (1 - f) * x + f * y;
+}
+
+function loop() {
+  cursorX = lerp(cursorX, pageX, .16);
+  cursorY = lerp(cursorY, pageY, .16);
+  cursorOuter.style.top = document.documentElement.scrollTop + cursorY - 16 + 'px';
+  cursorOuter.style.left = cursorX - 16 + 'px';
+  requestAnimationFrame(loop);
+}
+
+loop();
+
+
