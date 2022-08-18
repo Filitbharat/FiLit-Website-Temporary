@@ -242,6 +242,7 @@ a {
   height: 60%;
   justify-content: center;
   align-items: left;
+  padding-left: 10px;
 }
 
 .front-content-main-heading {
@@ -266,8 +267,8 @@ a {
 }
 
 .playstore-download-button-img {
-  height: 100px;
-  width: 250px;
+  height: 70px;
+  width: 200px;
 }
 
 /* .playstore-button-text-container {
