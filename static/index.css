@@ -623,6 +623,12 @@ a {
   font-weight: 600;
 }
 
+.footer-company-tagline {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
 .footer-company-address {
   width: 70%;
   margin-bottom: 20px;
@@ -630,8 +636,19 @@ a {
 
 .footer-contact-info-icon {
   height: 25px;
-  fill: white;
+  fill: rgb(200, 199, 199);
   margin-right: 20px;
+}
+
+.social-media-link-container {
+  width: 30%;
+}
+
+.social-media-link-button {
+  height: 25px;
+  fill: rgb(200, 199, 199);
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 .footer-contact-info {
@@ -681,7 +698,11 @@ a {
   .footer-contact-us-input {
     width: 80%;
   }
+  .social-media-link-container {
+    width: 80%;
+  }
 }
+
 
 /* Cursor */
 
