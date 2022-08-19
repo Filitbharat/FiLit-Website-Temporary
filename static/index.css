@@ -7,10 +7,32 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  cursor: none;
+}
+
 body {
   /* min-height: 100vh; */
   width: 100%;
   cursor: none;
+  overflow-x: hidden;
 }
 
 button {
@@ -45,7 +67,7 @@ a {
 }
 
 #navbar-filler {
-  height: 10vh;
+  min-height: 10vh;
   /* padding: 1vh 5vw; */
   /* width: 90vw; */
   background-color: white;
@@ -264,11 +286,13 @@ a {
   display: flex;
   align-items: flex-start;
   justify-content: left;
+  width: min-content;
+  height: min-content;
 }
 
 .playstore-download-button-img {
   height: 70px;
-  width: 200px;
+  width: 210px;
 }
 
 /* .playstore-button-text-container {
@@ -291,7 +315,7 @@ a {
     /* height: auto; */
   }
   .front-content-main-heading {
-    font-size: 300%;
+    font-size: 250%;
     width: 100%;
   }
   .front-content-sub-heading {
@@ -309,9 +333,11 @@ a {
     padding-bottom: 5%;
   }
   .playstore-download-button-img {
-    height: 70px;
+    height: 50px;
     width: 150px;
-    padding-bottom: 20px;
+  }
+  .playstore-download-button {
+    margin-bottom: 20px;
   }
 }
 
@@ -410,7 +436,7 @@ a {
   .how-it-works-sub-heading {
     font-size: 100%;
   }
-  .how-it-works-phone-model-container{
+  .how-it-works-phone-model-container {
     height: 40vh;
   }
   .how-it-works-phone-model {
@@ -562,6 +588,98 @@ a {
   }
   .section__headline {
     font-size: 60px;
+  }
+}
+
+/* Footer */
+
+.main-footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(18, 36, 52);
+  color: rgb(200, 199, 199);
+}
+
+.main-footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  margin: 2%;
+}
+
+.footer-left-section {
+  margin: auto 0;
+}
+
+.footer-logo {
+  height: 80px;
+}
+
+.footer-company-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.footer-company-address {
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.footer-contact-info-icon {
+  height: 25px;
+  fill: white;
+  margin-right: 20px;
+}
+
+.footer-contact-info {
+  display: flex;
+  padding: 10px 0;
+}
+
+.footer-contact-us-section {
+  padding: 50px 0;
+}
+
+.footer-contact-us-text {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-contact-us-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.footer-contact-us-input {
+  -webkit-appearance: none;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgb(200, 199, 199);
+  height: 50px;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.footer-contact-us-query {
+  padding-top: 10px;
+  height: 100px;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 1400px) {
+  .main-footer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footer-contact-us-input {
+    width: 80%;
   }
 }
 

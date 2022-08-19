@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<svg width="484.62" height="484.62" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" version="1.0">
+ <defs>
+  <clipPath id="id1">
+   <path clip-rule="nonzero" d="m1.98,3.66l484.62,0l0,484.62l-484.62,0l0,-484.62zm0,0" id="svg_1"/>
+  </clipPath>
+  <clipPath id="id2">
+   <path clip-rule="nonzero" d="m134.05,199.07l41.94,0l0,160.76l-41.94,0l0,-160.76zm0,0" id="svg_2"/>
+  </clipPath>
+  <clipPath id="id3">
+   <path clip-rule="nonzero" d="m223.89,133.51l46.59,0l0,226l-46.59,0l0,-226zm0,0" id="svg_3"/>
+  </clipPath>
+  <clipPath id="id4">
+   <path clip-rule="nonzero" d="m313.79,199.07l41.94,0l0,160.76l-41.94,0l0,-160.76zm0,0" id="svg_4"/>
+  </clipPath>
+  <clipPath id="id5">
+   <path clip-rule="nonzero" d="m134.05,133.51l41.94,0l0,41.94l-41.94,0l0,-41.94zm0,0" id="svg_5"/>
+  </clipPath>
+  <clipPath id="id6">
+   <path clip-rule="nonzero" d="m313.79,136.83l41.94,0l0,41.94l-41.94,0l0,-41.94zm0,0" id="svg_6"/>
+  </clipPath>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_20">
+   <g clip-path="url(#id1)" id="svg_7">
+    <path d="m244.29,3.66c-133.83,0 -242.31,108.48 -242.31,242.31c0,133.82 108.48,242.31 242.31,242.31c133.82,0 242.31,-108.49 242.31,-242.31c0,-133.83 -108.49,-242.31 -242.31,-242.31" fill="#c8c8c8" fill-rule="nonzero" id="svg_8"/>
+   </g>
+   <g clip-path="url(#id2)" id="svg_9">
+    <path d="m134.06,199.07l41.93,0l0,160.76l-41.93,0l0,-160.76" fill="#ffffff" fill-rule="nonzero" id="svg_10"/>
+   </g>
+   <g clip-path="url(#id3)" id="svg_11">
+    <path d="m223.89,133.56l46.59,0l0,225.93l-46.59,0l0,-225.93" fill="#ffffff" fill-rule="nonzero" id="svg_12"/>
+   </g>
+   <g clip-path="url(#id4)" id="svg_13">
+    <path d="m313.79,199.07l41.94,0l0,160.76l-41.94,0l0,-160.76" fill="#ffffff" fill-rule="nonzero" id="svg_14"/>
+   </g>
+   <g clip-path="url(#id5)" id="svg_15">
+    <path d="m155.02,133.51c-11.58,0 -20.97,9.39 -20.97,20.97c0,11.58 9.39,20.97 20.97,20.97c11.58,0 20.97,-9.39 20.97,-20.97c0,-11.58 -9.39,-20.97 -20.97,-20.97" fill="#ffffff" fill-rule="nonzero" id="svg_16"/>
+   </g>
+   <g clip-path="url(#id6)" id="svg_17">
+    <path d="m334.76,136.83c-11.59,0 -20.97,9.39 -20.97,20.97c0,11.58 9.38,20.97 20.97,20.97c11.58,0 20.97,-9.39 20.97,-20.97c0,-11.58 -9.39,-20.97 -20.97,-20.97" fill="#ffffff" fill-rule="nonzero" id="svg_18"/>
+   </g>
+   <rect fill="#000000" fill-opacity="0" height="0" id="svg_19" stroke="#000000" width="0" x="170.25" y="214.5"/>
+  </g>
+ </g>
+</svg>
