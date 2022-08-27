@@ -68,45 +68,119 @@ $("body").delegate(".c-faq", "click", function () {
   }
 });
 
-//  cursor animation
 
-let cursor = document.getElementById("cursor");
-let cursorOuter = document.getElementById("cursor-outer");
-
-if ("ontouchstart" in window) {
-  cursor.style.display = "none";
-  cursorOuter.style.display = "none";
-}
-
-let cursorX = 0;
-let cursorY = 0;
-let pageX = 0;
-let pageY = 0;
-
-window.addEventListener('mousemove', function (e) {
-  pageX = e.clientX;
-  pageY = e.clientY;
-  cursor.style.left = e.clientX - 4 + "px";
-  cursor.style.top = document.documentElement.scrollTop +  e.clientY - 4 + "px";
+var xValues = []; //years
+var investValues = []; //Investment Yields
+var baseValues = []; //Base Values
+var myct = new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [
+      {
+        type: "bar",
+        label: ["Initial Investment"],
+        data: baseValues,
+        stack: "1",
+        backgroundColor: ["gray"],
+      },
+      {
+        type: "bar",
+        label: ["Profit"],
+        data: investValues,
+        stack: "1",
+        backgroundColor: ["blue"],
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+  },
 });
-
-window.addEventListener('scroll', function (e) {
-  cursor.style.top = document.documentElement.scrollTop +  pageY - 4 + "px";
-});
-
-
-function lerp(x, y, f) {
-  return (1 - f) * x + f * y;
+document.getElementById("investment-calculator-years").addEventListener('input', newGraph);
+function newGraph() {
+  let canvas = document.getElementById("myChart");
+  var years = parseInt(document.getElementById("investment-calculator-years").value);
+  var baseInvestment = parseInt(document.getElementById("investment-calculator-base-amount").value);
+  xValues = [];
+  baseValues = [];
+  investValues = [];
+  for(var i = 1; i <= years; i++){
+    xValues.push(i+"Y");
+    baseValues.push(12*baseInvestment);
+    if(i > 1){
+      baseValues[i-1] += baseValues[i-2];
+    }
+    investValues.push(0.15*baseValues[i-1]);
+    if(i > 1){
+      investValues[i-1] = 0.15*(baseValues[i-2]+investValues[i-2]);
+    }
+  }
+  
+  myct.destroy();
+  myct = new Chart("myChart", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          type: "bar",
+          label: ["Initial Investment"],
+          data: baseValues,
+          stack: "1",
+          backgroundColor: ["lightgray"],
+        },
+        {
+          type: "bar",
+          label: ["Profit"],
+          data: investValues,
+          stack: "1",
+          backgroundColor: ["#004aad"],
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      barThickness: "20",
+      scales: {
+        xAxes: {
+          grid: {
+            display: false
+          },
+          stacked: true,
+        },
+        y: {
+          stacked: true,
+          ticks: {
+            callback: function(value, index, ticks) {
+              return indianconversion(value);
+            }
+          }
+        },
+      },
+    },
+  });
 }
 
-function loop() {
-  cursorX = lerp(cursorX, pageX, .16);
-  cursorY = lerp(cursorY, pageY, .16);
-  cursorOuter.style.top = document.documentElement.scrollTop + cursorY - 16 + 'px';
-  cursorOuter.style.left = cursorX - 16 + 'px';
-  requestAnimationFrame(loop);
+function indianconversion(val) {
+  if (val >= 10000000) val = (val / 10000000).toFixed(1) + ' Cr';
+  else if (val >= 100000) val = (val / 100000).toFixed(1) + ' Lac';
+  else if (val >= 1000) val = (val / 1000).toFixed(1  ) + ' K';
+  return val;
 }
-
-loop();
-
-

@@ -92,90 +92,71 @@
         </div>
       </div>
       <!-- How it works -->
-      <div class="how-it-works-section-container">
+      <div class="how-it-works-container">
+        <div class="how-it-works-section-heading-container">
+          <p class="how-it-works-section-heading">How It Works</p>
+        </div>
         <div class="how-it-works-section">
-          <div class="how-it-works-text">
-            <p class="how-it-works-heading">Some textual heading.</p>
-            <p class="how-it-works-sub-heading">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-              quibusdam neque non voluptate, culpa ratione nobis odio fugit
-              temporibus autem quos
-            </p>
+          <div class="how-it-works-card">
+            <img src="../static/Spend Phone Model.png" class="how-it-works-phone-model"alt="" />
+            <img
+              src="../static/Spend Card.png"
+              class="how-it-works-base-card"
+              alt=""
+            />
           </div>
-          <div class="how-it-works-phone-model-container">
+          <div class="how-it-works-card">
+            <img src="../static/Save Phone Model.png" class="how-it-works-phone-model"alt="" />
             <img
-              src="../static/Digital Rupee.svg"
+              src="../static/Save Card.png"
+              class="how-it-works-base-card"
               alt=""
-              class="how-it-works-coin-type1"
             />
+          </div>
+          <div class="how-it-works-card">
+            <img src="../static/Invest Phone Model.png" class="how-it-works-phone-model"alt="" />
             <img
-              src="../static/Spend Phone Model.png"
+              src="../static/Invest Card.png"
+              class="how-it-works-base-card"
               alt=""
-              class="how-it-works-phone-model"
-            />
-            <img
-              src="../static/footer-logo.svg"
-              alt=""
-              class="how-it-works-coin-type2"
             />
           </div>
         </div>
       </div>
-      <div class="how-it-works-section-container">
-        <div class="how-it-works-section">
-          <div class="how-it-works-text">
-            <p class="how-it-works-heading">Some textual heading.</p>
-            <p class="how-it-works-sub-heading">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-              quibusdam neque non voluptate, culpa ratione nobis odio fugit
-              temporibus autem quos
-            </p>
-          </div>
-          <div class="how-it-works-phone-model-container">
-            <img
-              src="../static/footer-logo.svg"
-              alt=""
-              class="how-it-works-coin-type1"
-            />
-            <img
-              src="../static/Save Phone Model.png"
-              alt=""
-              class="how-it-works-phone-model"
-            />
-            <img
-              src="../static/Digital Rupee.svg"
-              alt=""
-              class="how-it-works-coin-type2"
-            />
-          </div>
+      <div class="investment-calculator-section-container">
+        <div class="investment-calculator-input">
+          <input
+            type="text"
+            name=""
+            id="investment-calculator-base-amount"
+            placeholder="Base Amount"
+            value="5000"
+          />
+          <input
+            type="number"
+            name=""
+            id="investment-calculator-years"
+            placeholder="Years Amount"
+          />
         </div>
-      </div>
-      <div class="how-it-works-section-container">
-        <div class="how-it-works-section">
-          <div class="how-it-works-text">
-            <p class="how-it-works-heading">Some textual heading.</p>
-            <p class="how-it-works-sub-heading">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus
-              quibusdam neque non voluptate, culpa ratione nobis odio fugit
-              temporibus autem quos
-            </p>
-          </div>
-          <div class="how-it-works-phone-model-container">
-            <img
-              src="../static/Digital Rupee.svg"
-              alt=""
-              class="how-it-works-coin-type1"
-            />
-            <img
-              src="../static/Invest Phone Model.png"
-              alt=""
-              class="how-it-works-phone-model"
-            />
-            <img
-              src="../static/footer-logo.svg"
-              alt=""
-              class="how-it-works-coin-type2"
-            />
+        <div class="investment-calculator-output">
+          <canvas
+            id="myChart"
+            style="width: 30px; max-width: 500px; max-height: 400px"
+          ></canvas>
+          <div class="investment-calculator-output-right-side">
+            <div class="investment-calculator-output-text">
+              <p class="investment-calculator-output-heading">Total Invested</p>
+              <p class="investment-calculator-output-value">Total Invested</p>
+            </div>
+            <div class="investment-calculator-output-text">
+              <p class="investment-calculator-output-heading">Total Profit</p>
+              <p class="investment-calculator-output-value">Total Invested</p>
+            </div>
+            <div class="investment-calculator-output-text">
+              <p class="investment-calculator-output-heading">Maturity value</p>
+              <p class="investment-calculator-output-value">Total Invested</p>
+            </div>
           </div>
         </div>
       </div>
@@ -184,21 +165,19 @@
         <h1 class="section__headline">Frequently Asked Questions</h1>
         <ul class="c-faqs">
           <li class="c-faq c-faq--active">
-            <span class="c-faq__title"
-              >What is AutoPay and why do you need it?</span
-            >
+            <div class="c-faq__title">
+              What is AutoPay and why do you need it?
+            </div>
             <div class="c-faq__answer">
-              <p>
-                AutoPay is a service needed to ensure that your investments are
-                automatic and hassle-free. You just need to enter your UPI ID
-                and approve the AutoPay request to proceed.
-              </p>
+              AutoPay is a service needed to ensure that your investments are
+              automatic and hassle-free. You just need to enter your UPI ID and
+              approve the AutoPay request to proceed.
             </div>
           </li>
           <li class="c-faq">
-            <span class="c-faq__title"
-              >How much money do I need to start investing?</span
-            >
+            <div class="c-faq__title">
+              How much money do I need to start investing?
+            </div>
             <div class="c-faq__answer">
               You can begin investing through Filit with only ₹1. What's even
               better is that you can make lump-sum investments, with as little
@@ -206,7 +185,7 @@
             </div>
           </li>
           <li class="c-faq">
-            <span class="c-faq__title">How do I set up the app?</span>
+            <div class="c-faq__title">How do I set up the app?</div>
             <div class="c-faq__answer">
               To complete the set up, you need to do the following:<br /><br />
               1) Instant KYC Verification : Enter your name,number, and PAN to
@@ -216,9 +195,7 @@
             </div>
           </li>
           <li class="c-faq">
-            <span class="c-faq__title"
-              >What are Fillups? How do they work?</span
-            >
+            <div class="c-faq__title">What are Fillups? How do they work?</div>
             <div class="c-faq__answer">
               Let's understand how Fillups work through an example.
               <br /><br />Assume you buy groceries for ₹64 using UPI. You'll
@@ -232,9 +209,9 @@
             </div>
           </li>
           <li class="c-faq">
-            <span class="c-faq__title"
-              >Is there a lock-in period on my investments?</span
-            >
+            <div class="c-faq__title">
+              Is there a lock-in period on my investments?
+            </div>
             <div class="c-faq__answer">
               There is no lock-in period on your investments with Filit.
               <br /><br />Here, you have complete control over your investments
@@ -242,9 +219,9 @@
             </div>
           </li>
           <li class="c-faq">
-            <span class="c-faq__title"
-              >Is my data shared with any 3rd party applications?
-            </span>
+            <div class="c-faq__title">
+              Is my data shared with any 3rd party applications?
+            </div>
             <div class="c-faq__answer">
               Absolutely not! <br />Your data is required by SEBI and RBI for
               security purposes. <br /><br />
@@ -260,7 +237,9 @@
         <div class="footer-left-section">
           <img src="../static/footer-logo (1).svg" alt="" class="footer-logo" />
           <p class="footer-company-name">Filit Bharat</p>
-          <p class="footer-company-tagline">Go beyond Roti, Kapda, Makaan. Start saving today!</p>
+          <p class="footer-company-tagline">
+            Go beyond Roti, Kapda, Makaan. Start saving today!
+          </p>
           <p class="footer-company-address">
             This will have an address for the office of Filit Bharat which is to
             be provided and can also be multiline - 123456.
@@ -360,14 +339,12 @@
         </div>
       </div>
     </footer>
-    <!-- Cursor configuration -->
-    <div id="cursor"></div>
-    <div id="cursor-outer"></div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="../static/index.js"></script>
   </body>
 </html>
