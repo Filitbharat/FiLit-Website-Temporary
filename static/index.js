@@ -72,7 +72,20 @@ $("body").delegate(".c-faq", "click", function () {
 var xValues = []; //years
 var investValues = []; //Investment Yields
 var baseValues = []; //Base Values
-var myct = new Chart("myChart", {
+const maturityValueBox = document.getElementById("maturity-value-box");
+const investedValueBox = document.getElementById("invested-value-box");
+const profitValueBox = document.getElementById("profit-value-box");
+var years = parseInt(document.getElementById("investment-calculator-years").value);
+var baseInvestment = parseInt(document.getElementById("investment-calculator-base-amount").value);
+for(var i = 1; i <= years; i++){
+  xValues.push(i+"Y");
+  baseValues.push(12*baseInvestment*i);
+  investValues.push(baseInvestment*((Math.pow(1.01, 12*i) - 1) * 1.01)/(0.01) - baseValues[i-1]);
+}
+maturityValueBox.innerText = "₹" + indianconversion(investValues[years - 1] + baseValues[years - 1]);
+investedValueBox.innerText = "₹" + indianconversion(baseValues[years - 1]);
+profitValueBox.innerText = "₹" + indianconversion(investValues[years - 1]);
+myct = new Chart("myChart", {
   type: "bar",
   data: {
     labels: xValues,
@@ -82,14 +95,14 @@ var myct = new Chart("myChart", {
         label: ["Initial Investment"],
         data: baseValues,
         stack: "1",
-        backgroundColor: ["gray"],
+        backgroundColor: ["lightgray"],
       },
       {
         type: "bar",
         label: ["Profit"],
         data: investValues,
         stack: "1",
-        backgroundColor: ["blue"],
+        backgroundColor: ["#004aad"],
       },
     ],
   },
@@ -99,19 +112,28 @@ var myct = new Chart("myChart", {
         display: false,
       },
     },
+    barThickness: "20",
     scales: {
-      x: {
+      xAxes: {
+        grid: {
+          display: false
+        },
         stacked: true,
       },
       y: {
         stacked: true,
+        ticks: {
+          callback: function(value, index, ticks) {
+            return indianconversion(value);
+          }
+        }
       },
     },
   },
 });
 document.getElementById("investment-calculator-years").addEventListener('input', newGraph);
+document.getElementById("investment-calculator-base-amount").addEventListener('input', newGraph);
 function newGraph() {
-  let canvas = document.getElementById("myChart");
   var years = parseInt(document.getElementById("investment-calculator-years").value);
   var baseInvestment = parseInt(document.getElementById("investment-calculator-base-amount").value);
   xValues = [];
@@ -119,16 +141,12 @@ function newGraph() {
   investValues = [];
   for(var i = 1; i <= years; i++){
     xValues.push(i+"Y");
-    baseValues.push(12*baseInvestment);
-    if(i > 1){
-      baseValues[i-1] += baseValues[i-2];
-    }
-    investValues.push(0.15*baseValues[i-1]);
-    if(i > 1){
-      investValues[i-1] = 0.15*(baseValues[i-2]+investValues[i-2]);
-    }
+    baseValues.push(12*baseInvestment*i);
+    investValues.push(baseInvestment*((Math.pow(1.01, 12*i) - 1) * 1.01)/(0.01) - baseValues[i-1]);
   }
-  
+  maturityValueBox.innerText = "₹" + indianconversion(investValues[years - 1] + baseValues[years - 1]);
+  investedValueBox.innerText = "₹" + indianconversion(baseValues[years - 1]);
+  profitValueBox.innerText = "₹" + indianconversion(investValues[years - 1]);
   myct.destroy();
   myct = new Chart("myChart", {
     type: "bar",
@@ -179,8 +197,8 @@ function newGraph() {
 }
 
 function indianconversion(val) {
-  if (val >= 10000000) val = (val / 10000000).toFixed(1) + ' Cr';
-  else if (val >= 100000) val = (val / 100000).toFixed(1) + ' Lac';
-  else if (val >= 1000) val = (val / 1000).toFixed(1  ) + ' K';
+  if (val >= 10000000) val = (val / 10000000).toFixed(2) + ' Cr';
+  else if (val >= 100000) val = (val / 100000).toFixed(2) + ' Lac';
+  else if (val >= 1000) val = (val / 1000).toFixed(2) + ' K';
   return val;
 }

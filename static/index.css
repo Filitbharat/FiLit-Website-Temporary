@@ -372,7 +372,7 @@ a {
   margin: 20px 20px;
 }
 
-.how-it-works-phone-model{
+.how-it-works-phone-model {
   width: 70%;
 }
 
@@ -385,39 +385,76 @@ a {
 
 /* Investment Calculator */
 
-.investment-calculator-section-container{
+.investment-calculator-section-container {
   width: 80%;
   margin: 50px auto;
 }
 
 .investment-calculator-input {
-  background-color: rgb(175, 200, 255);
+  background-color: rgb(227, 227, 227);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   margin-bottom: 30px;
 }
 
+#investment-calculator-base-amount,
+#investment-calculator-years {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 20px;
+  color: black;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  outline: none;
+  background: transparent;
+}
+
+.investment-calculator-input-box {
+  position: relative;
+  margin: 10px 20px;
+}
+
+.investment-calculator-input-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 20px;
+  color: black;
+  font-weight: 400;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.investment-calculator-input-box input:focus ~ label,
+.investment-calculator-input-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #004aad;
+  font-size: 12px;
+}
+
 .investment-calculator-output {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   position: relative;
 }
 
 .investment-calculator-output-right-side {
-  position:  absolute;
-  right: 0;
+  grid-column-start: 2;
   border-radius: 12px;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  min-height: 300px;
+  max-height: 90%;
+  align-self: center;
   background-color: #004aad;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .investment-calculator-output-heading {
@@ -429,6 +466,27 @@ a {
   color: white;
   font-size: 30px;
   font-weight: 600;
+}
+
+.investment-calculator-output-text:nth-of-type(1) {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+
+.investment-calculator-output-text:nth-of-type(1) p {
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .investment-calculator-output {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #myChart,
+  .investment-calculator-output-right-side {
+    grid-column-start: 1;
+    margin: 0 auto;
+  }
 }
 
 /* FAQ Section */
@@ -689,4 +747,3 @@ a {
     width: 80%;
   }
 }
-

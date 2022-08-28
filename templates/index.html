@@ -125,19 +125,26 @@
       </div>
       <div class="investment-calculator-section-container">
         <div class="investment-calculator-input">
-          <input
-            type="text"
-            name=""
-            id="investment-calculator-base-amount"
-            placeholder="Base Amount"
-            value="5000"
-          />
-          <input
-            type="number"
-            name=""
-            id="investment-calculator-years"
-            placeholder="Years Amount"
-          />
+          <div class="investment-calculator-input-box">
+            <input
+              type="text"
+              name=""
+              id="investment-calculator-base-amount"
+              required=""
+              value="5000"
+            />
+            <label>Base Amount</label>
+          </div>
+          <div class="investment-calculator-input-box">
+            <input
+              type="number"
+              name=""
+              id="investment-calculator-years"
+              required=""
+              value="5"
+            />
+            <label>Number of Years</label>
+          </div>
         </div>
         <div class="investment-calculator-output">
           <canvas
@@ -146,16 +153,16 @@
           ></canvas>
           <div class="investment-calculator-output-right-side">
             <div class="investment-calculator-output-text">
+              <p class="investment-calculator-output-heading">Maturity value</p>
+              <p class="investment-calculator-output-value" id = "maturity-value-box">Total Invested</p>
+            </div>
+            <div class="investment-calculator-output-text">
               <p class="investment-calculator-output-heading">Total Invested</p>
-              <p class="investment-calculator-output-value">Total Invested</p>
+              <p class="investment-calculator-output-value" id = "invested-value-box">Total Invested</p>
             </div>
             <div class="investment-calculator-output-text">
               <p class="investment-calculator-output-heading">Total Profit</p>
-              <p class="investment-calculator-output-value">Total Invested</p>
-            </div>
-            <div class="investment-calculator-output-text">
-              <p class="investment-calculator-output-heading">Maturity value</p>
-              <p class="investment-calculator-output-value">Total Invested</p>
+              <p class="investment-calculator-output-value" id = "profit-value-box">Total Invested</p>
             </div>
           </div>
         </div>
