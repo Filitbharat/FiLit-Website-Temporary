@@ -68,21 +68,28 @@ $("body").delegate(".c-faq", "click", function () {
   }
 });
 
-
 var xValues = []; //years
 var investValues = []; //Investment Yields
 var baseValues = []; //Base Values
 const maturityValueBox = document.getElementById("maturity-value-box");
 const investedValueBox = document.getElementById("invested-value-box");
 const profitValueBox = document.getElementById("profit-value-box");
-var years = parseInt(document.getElementById("investment-calculator-years").value);
-var baseInvestment = parseInt(document.getElementById("investment-calculator-base-amount").value);
-for(var i = 1; i <= years; i++){
-  xValues.push(i+"Y");
-  baseValues.push(12*baseInvestment*i);
-  investValues.push(baseInvestment*((Math.pow(1.01, 12*i) - 1) * 1.01)/(0.01) - baseValues[i-1]);
+var years = parseInt(
+  document.getElementById("investment-calculator-years").value
+);
+var baseInvestment = parseInt(
+  document.getElementById("investment-calculator-base-amount").value
+);
+for (var i = 1; i <= years; i++) {
+  xValues.push(i + "Y");
+  baseValues.push(12 * baseInvestment * i);
+  investValues.push(
+    (baseInvestment * ((Math.pow(1.01, 12 * i) - 1) * 1.01)) / 0.01 -
+      baseValues[i - 1]
+  );
 }
-maturityValueBox.innerText = "₹" + indianconversion(investValues[years - 1] + baseValues[years - 1]);
+maturityValueBox.innerText =
+  "₹" + indianconversion(investValues[years - 1] + baseValues[years - 1]);
 investedValueBox.innerText = "₹" + indianconversion(baseValues[years - 1]);
 profitValueBox.innerText = "₹" + indianconversion(investValues[years - 1]);
 myct = new Chart("myChart", {
@@ -116,35 +123,47 @@ myct = new Chart("myChart", {
     scales: {
       xAxes: {
         grid: {
-          display: false
+          display: false,
         },
         stacked: true,
       },
       y: {
         stacked: true,
         ticks: {
-          callback: function(value, index, ticks) {
+          callback: function (value, index, ticks) {
             return indianconversion(value);
-          }
-        }
+          },
+        },
       },
     },
   },
 });
-document.getElementById("investment-calculator-years").addEventListener('input', newGraph);
-document.getElementById("investment-calculator-base-amount").addEventListener('input', newGraph);
+document
+  .getElementById("investment-calculator-years")
+  .addEventListener("input", newGraph);
+document
+  .getElementById("investment-calculator-base-amount")
+  .addEventListener("input", newGraph);
 function newGraph() {
-  var years = parseInt(document.getElementById("investment-calculator-years").value);
-  var baseInvestment = parseInt(document.getElementById("investment-calculator-base-amount").value);
+  var years = parseInt(
+    document.getElementById("investment-calculator-years").value
+  );
+  var baseInvestment = parseInt(
+    document.getElementById("investment-calculator-base-amount").value
+  );
   xValues = [];
   baseValues = [];
   investValues = [];
-  for(var i = 1; i <= years; i++){
-    xValues.push(i+"Y");
-    baseValues.push(12*baseInvestment*i);
-    investValues.push(baseInvestment*((Math.pow(1.01, 12*i) - 1) * 1.01)/(0.01) - baseValues[i-1]);
+  for (var i = 1; i <= years; i++) {
+    xValues.push(i + "Y");
+    baseValues.push(12 * baseInvestment * i);
+    investValues.push(
+      (baseInvestment * ((Math.pow(1.01, 12 * i) - 1) * 1.01)) / 0.01 -
+        baseValues[i - 1]
+    );
   }
-  maturityValueBox.innerText = "₹" + indianconversion(investValues[years - 1] + baseValues[years - 1]);
+  maturityValueBox.innerText =
+    "₹" + indianconversion(investValues[years - 1] + baseValues[years - 1]);
   investedValueBox.innerText = "₹" + indianconversion(baseValues[years - 1]);
   profitValueBox.innerText = "₹" + indianconversion(investValues[years - 1]);
   myct.destroy();
@@ -179,17 +198,17 @@ function newGraph() {
       scales: {
         xAxes: {
           grid: {
-            display: false
+            display: false,
           },
           stacked: true,
         },
         y: {
           stacked: true,
           ticks: {
-            callback: function(value, index, ticks) {
+            callback: function (value, index, ticks) {
               return indianconversion(value);
-            }
-          }
+            },
+          },
         },
       },
     },
@@ -197,8 +216,27 @@ function newGraph() {
 }
 
 function indianconversion(val) {
-  if (val >= 10000000) val = (val / 10000000).toFixed(2) + ' Cr';
-  else if (val >= 100000) val = (val / 100000).toFixed(2) + ' Lac';
-  else if (val >= 1000) val = (val / 1000).toFixed(2) + ' K';
+  if (val >= 10000000) val = (val / 10000000).toFixed(2) + " Cr";
+  else if (val >= 100000) val = (val / 100000).toFixed(2) + " Lac";
+  else if (val >= 1000) val = (val / 1000).toFixed(2) + " K";
   return val;
+}
+
+const faqButtons = document.getElementsByClassName("faq-heading");
+for (let i = 0; i < faqButtons.length; i++) {
+  faqButtons[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    let panel = this.nextElementSibling;
+    let icon = this.lastElementChild;
+    console.log(icon);
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.style.marginTop = "0px";
+      icon.textContent = "+";
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.marginTop = "10px";
+      icon.textContent = "-";
+    }
+  });
 }
