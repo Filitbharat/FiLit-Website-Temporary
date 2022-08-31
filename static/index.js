@@ -222,14 +222,16 @@ function indianconversion(val) {
   return val;
 }
 
-const faqButtons = document.getElementsByClassName("faq-heading");
+const faqButtons = Array.from(document.getElementsByClassName("faq-heading"));
 for (let i = 0; i < faqButtons.length; i++) {
   faqButtons[i].addEventListener("click", function () {
     this.classList.toggle("active");
     let panel = this.nextElementSibling;
     let icon = this.lastElementChild;
-    console.log(icon);
-    if (panel.style.maxHeight) {
+    console.log(faqButtons);
+    let open = panel.style.maxHeight;
+    faqButtons.forEach(closeAnswer);
+    if (open) {
       panel.style.maxHeight = null;
       panel.style.marginTop = "0px";
       icon.textContent = "+";
@@ -239,4 +241,14 @@ for (let i = 0; i < faqButtons.length; i++) {
       icon.textContent = "-";
     }
   });
+}
+
+function closeAnswer(element) {
+  let panel = element.nextElementSibling;
+  let icon = element.lastElementChild;
+  if (panel.style.maxHeight) {
+    panel.style.maxHeight = null;
+    panel.style.marginTop = "0px";
+    icon.textContent = "+";
+  }
 }
