@@ -228,7 +228,6 @@ for (let i = 0; i < faqButtons.length; i++) {
     this.classList.toggle("active");
     let panel = this.nextElementSibling;
     let icon = this.lastElementChild;
-    console.log(faqButtons);
     let open = panel.style.maxHeight;
     faqButtons.forEach(closeAnswer);
     if (open) {
