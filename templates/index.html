@@ -26,9 +26,9 @@
         <hr class="divider" />
         <button class="navbar-link">Contact Us</button>
       </div>
-      <div class="navbar-download-button-container">
+      <!-- <div class="navbar-download-button-container">
         <button class="navbar-download-button">Download</button>
-      </div>
+      </div> -->
       <span id="navbar-overlay-button-container"
         ><button id="navbar-overlay-button">
           <svg
@@ -75,12 +75,12 @@
             Some more informative and catchy yet a little longer and more space
             taking text here.
           </p>
-          <button class="playstore-download-button">
+          <!-- <button class="playstore-download-button">
             <img
               src="../static/google-play-badge.png"
               alt=""
               class="playstore-download-button-img" />
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -123,54 +123,64 @@
       </div>
     </div>
     <div class="investment-calculator-section-container">
-      <div class="investment-calculator-input">
-        <div class="investment-calculator-input-box">
-          <input
-            type="text"
-            name=""
-            id="investment-calculator-base-amount"
-            required=""
-            value="5000" />
-          <label>Base Amount</label>
+      <div class="investment-calculator-left-section">
+        <div class="investment-calculator-input-container">
+          <div class="slidecontainer">
+            <div class="investment-calculator-input-text-container">
+              <p class="investment-calculator-input-text">Base Amount</p>
+              <p class="investment-calculator-input-value">5000</p>
+            </div>
+            <input
+              type="range"
+              min="1000"
+              max="30000"
+              step="100"
+              value="5000"
+              class="slider"
+              id="investment-calculator-base-amount"
+              oninput="updateSlider(event)"
+              style="--p: 16%" />
+          </div>
+          <hr class="investment-calculator-hr"/>
+          <div class="slidecontainer">
+            <div class="investment-calculator-input-text-container">
+              <p class="investment-calculator-input-text">Number of Years</p>
+              <p class="investment-calculator-input-value">5</p>
+            </div>
+            <input
+              type="range"
+              min="1"
+              max="30"
+              value="5"
+              class="slider"
+              id="investment-calculator-years"
+              oninput="updateSlider(event)"
+              style="--p: 16%" />
+          </div>
         </div>
-        <div class="investment-calculator-input-box">
-          <input
-            type="number"
-            name=""
-            id="investment-calculator-years"
-            required=""
-            value="5" />
-          <label>Number of Years</label>
-        </div>
-      </div>
-      <div class="investment-calculator-output">
-        <canvas
-          id="myChart"
-          style="width: 30px; max-width: 500px; max-height: 400px"></canvas>
-        <div class="investment-calculator-output-right-side">
+        <div class="investment-calculator-output-container">
           <div class="investment-calculator-output-text">
             <p class="investment-calculator-output-heading">Maturity value</p>
             <p
               class="investment-calculator-output-value"
-              id="maturity-value-box">
-              Total Invested
-            </p>
+              id="maturity-value-box">0</p>
           </div>
           <div class="investment-calculator-output-text">
             <p class="investment-calculator-output-heading">Total Invested</p>
             <p
               class="investment-calculator-output-value"
-              id="invested-value-box">
-              Total Invested
-            </p>
+              id="invested-value-box">0</p>
           </div>
           <div class="investment-calculator-output-text">
             <p class="investment-calculator-output-heading">Total Profit</p>
-            <p class="investment-calculator-output-value" id="profit-value-box">
-              Total Invested
-            </p>
+            <p
+              class="investment-calculator-output-value"
+              id="profit-value-box">0</p>
           </div>
         </div>
+      </div>
+      <div class="investment-calculator-right-section">
+        <canvas id="myChart"></canvas>
       </div>
     </div>
     <!-- FAQ Section -->
@@ -265,10 +275,10 @@
       <div class="cta-text">Join our mission to empower people to save!</div>
       <div class="cta-button">
         <button class="playstore-download-button">
-          <img
+          <!-- <img
             src="../static/google-play-badge.png"
             alt=""
-            class="playstore-download-button-img" />
+            class="playstore-download-button-img" /> -->
         </button>
       </div>
     </div>

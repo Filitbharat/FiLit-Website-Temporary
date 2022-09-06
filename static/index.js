@@ -17,30 +17,6 @@ overlayButton.addEventListener("click", function () {
   }
 });
 
-const coinObserver1 = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("pop-out-coin1");
-    }
-  });
-});
-
-const coinObserver2 = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("pop-out-coin2");
-    }
-  });
-});
-
-document.querySelectorAll(".how-it-works-coin-type1").forEach((coin) => {
-  coinObserver1.observe(coin);
-});
-
-document.querySelectorAll(".how-it-works-coin-type2").forEach((coin) => {
-  coinObserver2.observe(coin);
-});
-
 // function unfadeflex(element) {
 //   console.log(element);
 //   var op = 0.1; // initial opacity
@@ -56,17 +32,13 @@ document.querySelectorAll(".how-it-works-coin-type2").forEach((coin) => {
 //   }, 10);
 // }
 
-$("body").delegate(".c-faq", "click", function () {
-  let r = 0;
-  let w = $(window).width();
-  if ($(this).hasClass("c-faq--active")) {
-    r = 1;
-  }
-  $(".c-faq").removeClass("c-faq--active");
-  if (r != 1 || w > 768) {
-    $(this).addClass("c-faq--active");
-  }
-});
+updateSlider = (event) => {
+  const { value, min, max, step, parentElement: parent } = event.target;
+  event.currentTarget.style.setProperty("--p", `${(value / max) * 100}%`);
+  // console.log(event.currentTarget.style.background);
+  event.currentTarget.previousElementSibling.lastElementChild.textContent =
+    Number(value).toLocaleString();
+};
 
 var xValues = []; //years
 var investValues = []; //Investment Yields
@@ -218,7 +190,6 @@ function newGraph() {
 function indianconversion(val) {
   if (val >= 10000000) val = (val / 10000000).toFixed(2) + " Cr";
   else if (val >= 100000) val = (val / 100000).toFixed(2) + " Lac";
-  else if (val >= 1000) val = (val / 1000).toFixed(2) + " K";
   return val;
 }
 
