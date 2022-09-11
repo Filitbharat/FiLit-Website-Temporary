@@ -65,7 +65,7 @@ a {
   align-items: flex-end;
   position: fixed;
   z-index: 6; 
-  transition: all 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #main-navbar {
@@ -184,8 +184,8 @@ a {
   display: none;
   flex-direction: column;
   overflow: hidden;
-  transform: translateX(100%);
-  transition: all 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* transform: translateX(100%); */
+  transition: all 0.1s ease-in;
 }
 
 #overlay-content {

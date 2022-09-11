@@ -7,17 +7,16 @@ let navbarOverlayContainer = document.getElementById(
 function openOverlay() {
   overlay.style.display = "flex";
   setTimeout(function () {
-    overlay.style.transform = "translateX(0)";
+    overlay.style.width = "60%";
     navbarOverlayContainer.style.backdropFilter = "saturate(180%) blur(2px)";
   }, 10);
   document.body.style.overflow = "hidden";
 }
 
 function closeOverlay() {
-  setTimeout(function () {
-    overlay.style.display = "none";
-  }, 750);
-  overlay.style.transform = "translateX(100%)";
+  overlay.style.display = "none";
+  overlay.style.width = "0%";
+  // overlay.style.transform = "translateX(100%)";
   navbarOverlayContainer.style.backdropFilter = "";
   document.body.style.overflow = "";
 }
@@ -29,7 +28,7 @@ window.addEventListener("resize", function () {
 });
 
 navbarOverlayContainer.addEventListener("click", function (e) {
-  if (overlay.style.transform == "translateX(0px)") {
+  if (overlay.style.width == "60%") {
     if (
       !overlay.contains(e.target) | e.target.classList.contains("overlay-link")
     ) {
@@ -50,7 +49,7 @@ navbarOverlayContainer.addEventListener("click", function (e) {
 // });
 
 overlayButton.addEventListener("click", function () {
-  if (overlay.style.transform == "translateX(0px)") {
+  if (overlay.style.width == "60%") {
     closeOverlay();
   } else {
     openOverlay();
